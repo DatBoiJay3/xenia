@@ -71,11 +71,7 @@ void MaybeYield() {
 void SyncMemory() { MemoryBarrier(); }
 
 void Sleep(std::chrono::microseconds duration) {
-  if (duration.count() < 100) {
-    MaybeYield();
-  } else {
-    ::Sleep(static_cast<DWORD>(duration.count() / 1000));
-  }
+  
 }
 
 SleepResult AlertableSleep(std::chrono::microseconds duration) {
